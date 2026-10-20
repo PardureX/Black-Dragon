@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#0d0e11">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Black Dragon Knight Store · Productos disponibles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0e11;--surf:#16171c;--surf2:#21232a;--line:#33353e;--tx:#eceef2;--mut:#a3a7b3;--ac:#e11d2e;--ac2:#9f0f1c;--ac-tx:#fff;--am:#c9ced8;--sh:0 8px 24px rgba(0,0,0,.45);--glow:rgba(225,29,46,.35);
+--chrome:linear-gradient(100deg,#5d626d 0%,#f6f8fb 20%,#8e949f 38%,#ff4a4a 54%,#b30f1c 68%,#f6f8fb 86%,#7d838e 100%)}
+:root[data-theme="light"]{--bg:#f3f3f5;--surf:#fff;--surf2:#ececf0;--line:#d6d7de;--tx:#17181d;--mut:#5d6070;--ac:#c1121f;--ac2:#8f0d18;--am:#4a4f59;--sh:0 8px 24px rgba(30,30,50,.12);--glow:rgba(193,18,31,.25);
+--chrome:linear-gradient(100deg,#111 0%,#4a4f59 25%,#d11a2a 55%,#7a0c14 75%,#111 100%)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.5 "DM Sans",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.2}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding:20px 0 8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand b{font:800 clamp(1.05rem,4.6vw,1.5rem) Sora,sans-serif;letter-spacing:.06em;width:max-content;max-width:100%;
+background:var(--chrome);background-size:250% 100%;
+-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+filter:drop-shadow(0 0 10px var(--glow));animation:shine 6s ease-in-out infinite alternate}
+.brand em{font:600 .72rem "DM Sans",sans-serif;font-style:normal;letter-spacing:.35em;color:var(--ac);margin-top:3px}
+.brand small{font-size:.8rem;color:var(--mut);margin-top:2px;font-weight:400}
+@keyframes shine{from{background-position:0 0}to{background-position:100% 0}}
+.icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surf);color:var(--tx);cursor:pointer;font-size:1.1rem}
+.hero{padding:28px 0 8px}
+.hero h1{font-size:clamp(1.8rem,6vw,3rem);max-width:16ch;background:var(--chrome);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 8s ease-in-out infinite alternate;padding-bottom:.1em}
+.hero p{color:var(--mut);margin-top:10px;max-width:46ch}
+.tools{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 12px;margin-top:14px;border-bottom:1px solid var(--line)}
+.search{width:100%;height:48px;border-radius:14px;border:1px solid var(--line);background:var(--surf);color:var(--tx);padding:0 16px;font:inherit}
+.search:focus,.sort:focus{outline:2px solid var(--ac);outline-offset:1px}
+.row{display:flex;gap:8px;margin-top:10px;align-items:center}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--surf);color:var(--tx);font:500 .95rem "DM Sans",sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:var(--ac);box-shadow:0 0 14px var(--glow)}
+.sort{flex:none;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surf);color:var(--tx);padding:0 10px;font:inherit;max-width:128px}
+.count{color:var(--mut);font-size:.9rem;margin:16px 0 12px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr;padding-bottom:40px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.sort{max-width:none}}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:18px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;text-align:left;color:inherit;font:inherit;padding:0;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--ac);box-shadow:0 6px 22px var(--glow)}
+.card:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.art{height:170px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 50% 120%,var(--glow),transparent 65%),linear-gradient(135deg,var(--surf2),var(--surf));color:var(--ac);position:relative}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.art svg{width:64px;height:64px;filter:drop-shadow(0 0 8px var(--glow))}
+.tag{z-index:1;position:absolute;top:12px;left:12px;font-size:.78rem;font-weight:700;background:linear-gradient(135deg,#f6f8fb,#9aa0ab);color:#111;padding:3px 10px;border-radius:999px}
+.body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{color:var(--mut);font-size:.85rem}
+.card h3{font-size:1.05rem}
+.spec{color:var(--mut);font-size:.92rem}
+.price{margin-top:auto;padding-top:10px;font:700 1.25rem Sora,sans-serif}
+.price small{font:500 .95rem "DM Sans",sans-serif;color:var(--mut)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:40px 0}
+dialog{border:1px solid var(--line);border-radius:22px;background:var(--surf);color:var(--tx);width:min(94vw,480px);padding:0;box-shadow:var(--sh)}
+dialog::backdrop{background:rgba(5,9,16,.65)}
+#di{display:block;width:100%;max-height:240px;object-fit:cover;border-radius:22px 22px 0 0}
+.dh{padding:22px 20px 8px}
+.dh h2{font-size:1.3rem;margin-top:4px}
+.dl{padding:8px 20px;display:grid;gap:0}
+.dl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.dl dt{color:var(--mut)}
+.dl dd{margin:0;text-align:right;font-weight:500}
+.df{padding:16px 20px 20px;display:grid;gap:10px}
+.df .p{font:700 1.5rem Sora,sans-serif}
+.btn{display:flex;justify-content:center;align-items:center;min-height:50px;border-radius:14px;border:0;font:700 1rem "DM Sans",sans-serif;cursor:pointer;text-decoration:none}
+.btn.main{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;box-shadow:0 4px 16px var(--glow)}
+.btn.alt{background:var(--surf2);color:var(--tx)}
+footer{border-top:1px solid var(--line);padding:24px 0 32px;color:var(--mut);font-size:.9rem}
+@media(prefers-reduced-motion:reduce){.brand b,.hero h1{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="top">
+    <div class="brand"><b>BLACK DRAGON KNIGHT</b><em>STORE</em><small>Componentes y hardware para PC</small></div>
+    <button class="icon-btn" id="theme" aria-label="Cambiar tema claro u oscuro">☾</button>
+  </div>
+  <div class="hero">
+    <h1>Productos disponibles</h1>
+    <p>Memorias RAM, discos duros y placas base probados y listos para usar. Toca un producto para ver el detalle.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tools">
+    <input class="search" id="q" type="search" placeholder="Buscar producto, marca o capacidad" aria-label="Buscar">
+    <div class="row">
+      <div class="chips" id="chips"></div>
+      <select class="sort" id="sort" aria-label="Ordenar">
+        <option value="def">Destacados</option>
+        <option value="asc">Menor precio</option>
+        <option value="desc">Mayor precio</option>
+      </select>
+    </div>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <section class="grid" id="grid" aria-label="Lista de productos"></section>
+</main>
+
+<footer><div class="wrap">Precios en pesos colombianos (COP). Disponibilidad sujeta a cambios; escríbenos para confirmar.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+  <img id="di" alt="" hidden>
+  <div class="dh"><span class="cat" id="dc"></span><h2 id="dt"></h2></div>
+  <dl class="dl" id="dl"></dl>
+  <div class="df">
+    <div class="p" id="dp"></div>
+    <a class="btn main" id="wa" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    <button class="btn alt" id="close">Cerrar</button>
+  </div>
+</dialog>
+
+<script>
+/* ====== EDITA AQUÍ ======
+   Fotos: guárdalas en la carpeta img/ y escribe su nombre exacto en "img".
+   Cambia tu número (con 57 al inicio, sin + ni espacios) y los productos.
+   price: null muestra "Precio a consultar". */
+const WHATSAPP = "573000000000";
+const CATS = {ram:"Memoria RAM", hdd:"Discos duros", board:"Placas base"};
+const PRODUCTS = [
+  {id:1, img:"img/ram.jpg", cat:"ram", name:"Hyper Impact 8 GB", price: 95000, tag:"Nuevo",
+   short:"DDR3 · ≈1866 MHz",
+   specs:{Capacidad:"8 GB", Velocidad:"≈1800 MHz", Marca:"Hyper Impact", Estado:"Funcionando"}},
+  {id:2, img:"img/placa1.jpg", cat:"board", name:"Foxconn H61MV + i5 2500 + RAM", price:290000,
+   short:"Combo con procesador y memoria",
+   specs:{Placa:"Foxconn H61MV", Procesador:"Intel Core i5-2500", Memoria:"Incluida", Zócalo:"LGA 1155", Estado:"Funcionando"}},
+  {id:3, img:"img/placa2.jpg", cat:"board", name:"Foxconn H61MV + i5 2500 + RAM", price:350000,
+   short:"Combo con procesador y memoria",
+   specs:{Placa:"Foxconn H61MV", Procesador:"Intel Core i5-2500", Memoria:"Incluida", Zócalo:"LGA 1155", Estado:"Funcionando"}},
+  {id:4, img:"img/disco2tb.jpg", cat:"hdd", name:"Seagate Constellation ES.3 · 2 TB", price:220000,
+   short:"Dell · 3.5\" · Servidor",
+   specs:{Capacidad:"2 TB", Marca:"Dell / Seagate", Modelo:"Constellation ES.3", Formato:"3.5 pulgadas", Estado:"Funcionando"}},
+  {id:5, img:"img/disco1tb-a.jpg", cat:"hdd", name:"Seagate Constellation ES.3 · 1 TB", price:160000,
+   short:"Dell · 3.5\" · Servidor",
+   specs:{Capacidad:"1 TB", Marca:"Dell / Seagate", Modelo:"Constellation ES.3", Formato:"3.5 pulgadas", Estado:"Funcionando"}},
+  {id:6, img:"img/disco1tb-b.jpg", cat:"hdd", name:"Seagate Constellation ES.3 · 1 TB", price:120000,
+   short:"Dell · 3.5\" · Servidor",
+   specs:{Capacidad:"1 TB", Marca:"Dell / Seagate", Modelo:"Constellation ES.3", Formato:"3.5 pulgadas", Estado:"Funcionando"}},
+  {id:7, img:"img/externo3tb.jpg", cat:"hdd", name:"Seagate externo · 3 TB", price:null,
+   short:"Disco externo · 3.5\"",
+   specs:{Capacidad:"3 TB", Marca:"Seagate", Tipo:"Externo", Formato:"3.5 pulgadas", Estado:"Funcionando"}}
+];
+/* ====== FIN ====== */
+
+const ICONS = {
+ ram:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="18" width="56" height="24" rx="3"/><path d="M12 26h8v8h-8zM28 26h8v8h-8zM44 26h8v8h-8zM10 42v6M18 42v6M26 42v6M38 42v6M46 42v6M54 42v6"/></svg>',
+ hdd:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="48" height="44" rx="6"/><circle cx="30" cy="30" r="12"/><circle cx="30" cy="30" r="2"/><path d="M42 18l-6 8M16 47h8M46 47h2"/></svg>',
+ board:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="48" height="48" rx="4"/><rect x="18" y="18" width="14" height="14" rx="2"/><path d="M40 16v18M46 16v18M18 42h28M18 48h16"/></svg>'
+};
+const $ = s => document.querySelector(s);
+const money = n => n ? "$" + n.toLocaleString("es-CO") : null;
+let cat = "all";
+
+const chips = $("#chips");
+[["all","Todo"], ...Object.entries(CATS)].forEach(([k,v])=>{
+  const b = document.createElement("button");
+  b.className = "chip"; b.textContent = v; b.dataset.k = k;
+  b.setAttribute("aria-pressed", k === "all");
+  b.onclick = () => { cat = k; chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.k === k)); render(); };
+  chips.appendChild(b);
+});
+
+function render(){
+  const q = $("#q").value.trim().toLowerCase();
+  let list = PRODUCTS.filter(p => (cat === "all" || p.cat === cat) &&
+    (p.name + " " + p.short + " " + CATS[p.cat]).toLowerCase().includes(q));
+  const s = $("#sort").value;
+  if (s !== "def") list.sort((a,b) => ((a.price ?? 1e12) - (b.price ?? 1e12)) * (s === "asc" ? 1 : -1));
+  $("#count").textContent = list.length + (list.length === 1 ? " producto" : " productos");
+  $("#grid").innerHTML = list.length ? list.map(p => `
+    <button class="card" data-id="${p.id}">
+      <div class="art">${ICONS[p.cat]}${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()">` : ""}${p.tag ? `<span class="tag">${p.tag}</span>` : ""}</div>
+      <div class="body">
+        <span class="cat">${CATS[p.cat]}</span>
+        <h3>${p.name}</h3>
+        <span class="spec">${p.short}</span>
+        <div class="price">${money(p.price) || "<small>Precio a consultar</small>"}</div>
+      </div>
+    </button>`).join("") : '<p class="empty">No hay productos con esa búsqueda. Prueba con otra palabra o elige "Todo".</p>';
+}
+
+const dlg = $("#dlg");
+$("#grid").onclick = e => {
+  const c = e.target.closest(".card"); if (!c) return;
+  const p = PRODUCTS.find(x => x.id == c.dataset.id);
+  const di = $("#di"); di.hidden = true; di.onload = () => di.hidden = false; di.alt = p.name; if (p.img) di.src = p.img;
+  $("#dc").textContent = CATS[p.cat];
+  $("#dt").textContent = p.name;
+  $("#dl").innerHTML = Object.entries(p.specs).map(([k,v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  $("#dp").textContent = money(p.price) || "Precio a consultar";
+  const msg = encodeURIComponent("Hola Black Dragon Knight Store, me interesa: " + p.name + (p.price ? " (" + money(p.price) + ")" : ""));
+  $("#wa").href = "https://wa.me/" + WHATSAPP + "?text=" + msg;
+  dlg.showModal();
+};
+$("#close").onclick = () => dlg.close();
+dlg.onclick = e => { if (e.target === dlg) dlg.close(); };
+$("#q").oninput = render;
+$("#sort").onchange = render;
+
+const root = document.documentElement, tb = $("#theme");
+function setTheme(t){ root.dataset.theme = t; tb.textContent = t === "dark" ? "☾" : "☀"; try{ localStorage.setItem("theme", t); }catch(e){} }
+let saved = null; try{ saved = localStorage.getItem("theme"); }catch(e){}
+setTheme(saved || "dark");
+tb.onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+
+render();
+</script>
+</body>
+</html>
